@@ -36,18 +36,18 @@ data class Person(var name: String, var age: Int){
     companion object {
         fun getMe(): Person {
             val me = Person("Rodion", 18)
-            me.addSib(Person("Artem", 8))
-
-
+            me.father = Person("Olexandr", 51)
             me.mother = Person("Tania", 50)
+
+            me.addSib(Person("Artem", 28))
+            
+            me.mother?.let {  it.father = Person("Daniel", 85) } ?: noInfo()
+            me.mother?.let {  it.mother = Person("Anna", 85)  } ?: noInfo()
+
             me.mother?.addSib(Person("Olga", 53)) ?: noInfo()
             me.mother?.addSib(Person("Petia", 55)) ?: noInfo()
 
-            me.father = Person("Olexandr", 51)
             me.father?.addSib(Person("Emily", 54)) ?: noInfo()
-
-            me.mother?.let {  it.father = Person("Daniel", 85) } ?: noInfo()
-            me.mother?.let {  it.mother = Person("Anna", 85)  } ?: noInfo()
 
             return me
         }
