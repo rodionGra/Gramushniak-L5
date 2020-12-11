@@ -40,7 +40,7 @@ data class Person(var name: String, var age: Int){
             me.mother = Person("Tania", 50)
 
             me.addSib(Person("Artem", 28))
-            
+
             me.mother?.let {  it.father = Person("Daniel", 85) } ?: noInfo()
             me.mother?.let {  it.mother = Person("Anna", 85)  } ?: noInfo()
 
